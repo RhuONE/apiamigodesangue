@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 //Controllers
 use App\Http\Controllers\HemocentroController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\FuncionarioController;
 
 //AuthController
 use App\Http\Controllers\AuthController;
@@ -28,6 +29,18 @@ Route::middleware('auth:sanctum')->get('/hemocentro/perfil', [HemocentroControll
 Route::middleware('auth:sanctum')->put('/hemocentro/update', [HemocentroController::class, 'update']);
 //Hemocentro "Delete"
 Route::middleware('auth:sanctum')->put('/hemocentro/delete', [HemocentroController::class, 'delete']);
+
+//Funcionario
+//Funcionario Cadastro
+Route::post('/funcionario', [FuncionarioController::class, 'store']);
+//Listar Funcionarios
+Route::get('/funcionarios', [FuncionarioController::class, 'index']);
+//Funcionario Dados
+Route::get('/funcionario/{idFuncionario}', [FuncionarioController::class, 'show']);
+//Funcionario Update
+Route::put('/funcionario/{idFuncionario}', [FuncionarioController::class, 'update']);
+//Funcionario "Delete"
+Route::put('/funcionario/{idFuncionario}', [FuncionarioController::class, 'delete']);
 
 //Adm
 //Cadastrar adm, rota apenas utilizada pelo o back para fins de desenvolvimento
